@@ -2,9 +2,32 @@
   "name": "typewags",
   "version": "1.0.0",
   "description": "A typescript web API generator script.",
-  "main": "lib\\index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/DarrenDanielDay/typewags",
   "author": "Darren Daniel Day",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc --project ./tsconfig.production.json",
+    "format": "prettier --write .",
+    "lint:style": "prettier --check .",
+    "lint:types": "tsc --noEmit",
+    "start:example": "node dist/example/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
