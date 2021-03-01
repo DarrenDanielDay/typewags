@@ -1,0 +1,10 @@
+{
+  "name": "typewags",
+  "version": "1.0.0",
+  "description": "A typescript web API generator script.",
+  "main": "lib\\index.js",
+  "repository": "https://github.com/DarrenDanielDay/typewags",
+  "author": "Darren Daniel Day",
+  "license": "MIT",
+  "private": false
+}
