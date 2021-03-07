@@ -7,15 +7,20 @@ import {
 import { TypeDefinitionGenerator } from "./definition-generator";
 
 function uncapitalize(s: string) {
-  return `${s.slice(0, 1).toLowerCase()}${s.slice(1)}`
+  return `${s.slice(0, 1).toLowerCase()}${s.slice(1)}`;
 }
 
 function uncapitalizeJson<T>(json: T): T {
   if (Array.isArray(json)) {
-    return json.map(o => uncapitalizeJson(o)) as never;
+    return json.map((o) => uncapitalizeJson(o)) as never;
   }
   if (json && typeof json === "object") {
-    return Object.entries(json).reduce((prev, [key, value]) => (prev[uncapitalize(key)] = uncapitalizeJson(value), prev), Object.create(Object.prototype));
+    return Object.entries(json).reduce(
+      (prev, [key, value]) => (
+        (prev[uncapitalize(key)] = uncapitalizeJson(value)), prev
+      ),
+      Object.create(Object.prototype)
+    );
   }
   return json;
 }

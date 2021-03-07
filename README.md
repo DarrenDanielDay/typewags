@@ -16,11 +16,11 @@ Here is an example of usage if you followed the example of [typewags-aspnetcore]
 import axios from "axios";
 import path from "path";
 import fs from "fs/promises";
-import { WebAPIInspectResult, ApiBundleGenerator} from "typewags";
+import { WebAPIInspectResult, ApiBundleGenerator } from "typewags";
 
 const response = await axios.get<WebAPIInspectResult>(
-// If you follow the example, you can get the definition json by the following request.
-"http://localhost:5000/typewags"
+  // If you follow the example, you can get the definition json by the following request.
+  "http://localhost:5000/typewags"
 );
 const json = response.data;
 // Generate all of the definitions by a simple API.
@@ -31,4 +31,3 @@ await fs.writeFile(
   declarationContent
 );
 ```
-

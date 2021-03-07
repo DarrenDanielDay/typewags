@@ -9,7 +9,7 @@ export async function main() {
     "http://localhost:5000/typewags"
   );
   const { data } = json;
-  console.log(JSON.stringify(data, undefined, 2))
+  console.log(JSON.stringify(data, undefined, 2));
   const generator = new ApiBundleGenerator(data);
   const declarationContent = generator.generateApiInterfaceBundle();
   await fs.writeFile(
