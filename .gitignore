@@ -1,6 +1,6 @@
 # For this project
 playground.*
-
+**/bundle.ts
 # Logs
 logs
 *.log
