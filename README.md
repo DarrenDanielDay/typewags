@@ -18,16 +18,20 @@ import path from "path";
 import fs from "fs/promises";
 import { WebAPIInspectResult, ApiBundleGenerator } from "typewags";
 
-const response = await axios.get<WebAPIInspectResult>(
-  // If you follow the example, you can get the definition json by the following request.
-  "http://localhost:5000/typewags"
-);
-const json = response.data;
-// Generate all of the definitions by a simple API.
-const generator = new ApiBundleGenerator(json);
-const declarationContent = generator.generateApiInterfaceBundle();
-await fs.writeFile(
-  path.resolve(process.cwd(), "bundle.ts"),
-  declarationContent
-);
+async function main() {
+  const response = await axios.get<WebAPIInspectResult>(
+    // If you follow the example, you can get the definition json by the following request.
+    "http://localhost:5000/typewags"
+  );
+  const json = response.data;
+  // Generate all of the definitions by a simple API.
+  const generator = new ApiBundleGenerator(json);
+  const declarationContent = generator.generateApiInterfaceBundle();
+  await fs.writeFile(
+    path.resolve(process.cwd(), "bundle.ts"),
+    declarationContent
+  );
+}
+
+main();
 ```
