@@ -72,7 +72,11 @@ export interface ParameterInfo<
 export interface APIInfo<
   Name extends string,
   Method extends RequestMethodVerbs,
-  Parameters extends readonly unknown[],
+  Parameters extends readonly ParameterInfo<
+  string,
+  ParameterPositionKinds,
+  unknown
+>[],
   Response
 > {
     name: Name;

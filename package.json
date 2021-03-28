@@ -1,6 +1,6 @@
 {
   "name": "typewags",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A typescript web API generator script.",
   "main": "dist/index.js",
   "repository": "https://github.com/DarrenDanielDay/typewags",
