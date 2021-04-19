@@ -6,7 +6,7 @@ import { ApiBundleGenerator } from "../core/writers/type-based/api-bundle-genera
 
 export async function main() {
   const json = await axios.get<WebAPIInspectResult>(
-    "http://localhost:5000/typewags"
+    "http://localhost:5000/secret/apis"
   );
   const { data } = json;
   console.log(JSON.stringify(data, undefined, 2));

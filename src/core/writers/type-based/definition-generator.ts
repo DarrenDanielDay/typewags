@@ -1,3 +1,4 @@
+import camelcase from "camelcase";
 import {
   BaseEnumType,
   CommonTypes,
@@ -32,7 +33,9 @@ export class TypeDefinitionGenerator {
       return `export interface ${json.names.simple} {
   ${json.schema
     .map((schema) => {
-      return `${schema.key}: ${this.generateForConcreate(schema.value)}`;
+      return `${camelcase(schema.key)}: ${this.generateForConcreate(
+        schema.value
+      )}`;
     })
     .join("\n  ")}
 }

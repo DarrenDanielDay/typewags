@@ -1,6 +1,6 @@
 {
   "name": "typewags",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A typescript web API generator script.",
   "main": "dist/index.js",
   "repository": "https://github.com/DarrenDanielDay/typewags",
@@ -13,9 +13,9 @@
     "format": "prettier --write .",
     "lint:style": "prettier --check .",
     "lint:types": "tsc --noEmit",
-    "start:example": "node dist/example/main.js",
+    "start:example": "ts-node --files src/example/main.ts",
     "clean": "ts-node scripts/clean.ts",
-    "prepublish": "yarn format && yarn build && npm config set registry=https://registry.npmjs.org",
+    "prepublish": "npm config set registry=https://registry.npmjs.org && yarn format && yarn build",
     "postpublish": "npm config set registry https://registry.npm.taobao.org"
   },
   "devDependencies": {
