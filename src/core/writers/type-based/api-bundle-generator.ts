@@ -5,10 +5,7 @@ import {
   WebAPIInspectResult,
 } from "../../../schema/structs/typed-web-api-json";
 import { TypeDefinitionGenerator } from "./definition-generator";
-
-function uncapitalize(s: string) {
-  return `${s.slice(0, 1).toLowerCase()}${s.slice(1)}`;
-}
+import camelcase from "camelcase";
 
 function uncapitalizeJson<T>(json: T): T {
   if (Array.isArray(json)) {
@@ -17,7 +14,7 @@ function uncapitalizeJson<T>(json: T): T {
   if (json && typeof json === "object") {
     return Object.entries(json).reduce(
       (prev, [key, value]) => (
-        (prev[uncapitalize(key)] = uncapitalizeJson(value)), prev
+        (prev[camelcase(key)] = uncapitalizeJson(value)), prev
       ),
       Object.create(Object.prototype)
     );
