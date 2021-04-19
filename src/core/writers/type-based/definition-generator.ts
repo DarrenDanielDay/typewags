@@ -57,7 +57,9 @@ export class TypeDefinitionGenerator {
         })
         .join(", ")}> {
   ${json.fields
-    .map(({ key, value }) => `${key}: ${this.generateForAll(value)};`)
+    .map(
+      ({ key, value }) => `${camelcase(key)}: ${this.generateForAll(value)};`
+    )
     .join("\n  ")}
 }`;
     }
